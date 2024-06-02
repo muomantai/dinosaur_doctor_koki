@@ -4,19 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Card Design</title>
+    
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/microcms-js-sdk@3.1.0/dist/umd/microcms-js-sdk.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
-    <style>
-        /* タグボタンのスタイル */
-        .tag-buttons {
-            display: flex;
-            justify-content: center;
-        }
-        .tag-buttons button {
-            margin: 5px;
-        }
-    </style>
+    
 </head>
 <body>
     <div id="app">
@@ -24,7 +16,8 @@
         <div class="hedder">
             <div class="imgbox">
                 <img src="koki.png" alt="">
-                <p>Koki</p>
+                <p>Hey! I'm Koki</p>
+                <i class="fa-solid fa-hammer fa-xl"></i>
             </div>
         </div>
         <!-- ヒーロー -->
@@ -73,29 +66,87 @@
         <div class="tag-buttons">
             <ul class="tag-buttons_list">
                 <li><button @click="toggleTag('ALL')" :class="{ active: selectedTags.includes('ALL') }">ALL</button></li>
-        <li><button @click="toggleTag('肉食')" :class="{ active: selectedTags.includes('肉食') }">肉食</button></li>
-        <li><button @click="toggleTag('草食')" :class="{ active: selectedTags.includes('草食') }">草食</button></li>
-        <li><button @click="toggleTag('雑食')" :class="{ active: selectedTags.includes('雑食') }">雑食</button></li>
-        <li><button @click="toggleTag('三畳紀')" :class="{ active: selectedTags.includes('三畳紀') }">三畳紀</button></li>
-        <li><button @click="toggleTag('ジュラ紀')" :class="{ active: selectedTags.includes('ジュラ紀') }">ジュラ紀</button></li>
-        <li><button @click="toggleTag('白亜紀')" :class="{ active: selectedTags.includes('白亜紀') }">白亜紀</button></li>
+                <li><button @click="toggleTag('肉食')" :class="{ active: selectedTags.includes('肉食') }">肉食</button></li>
+                <li><button @click="toggleTag('草食')" :class="{ active: selectedTags.includes('草食') }">草食</button></li>
+                <li><button @click="toggleTag('雑食')" :class="{ active: selectedTags.includes('雑食') }">雑食</button></li>
+                <li><button @click="toggleTag('三畳紀')" :class="{ active: selectedTags.includes('三畳紀') }">三畳紀</button></li>
+                <li><button @click="toggleTag('ジュラ紀')" :class="{ active: selectedTags.includes('ジュラ紀') }">ジュラ紀</button></li>
+                <li><button @click="toggleTag('白亜紀')" :class="{ active: selectedTags.includes('白亜紀') }">白亜紀</button></li>
+                <br>
+                <!-- type0/2 -->
+                <li><button @click="toggleTag('竜盤類')" :class="{ active: selectedTags.includes('竜盤類') }">竜盤類</button></li>
+                <li><button @click="toggleTag('鳥盤類')" :class="{ active: selectedTags.includes('鳥盤類') }">鳥盤類</button></li>
+                <li><button @click="toggleTag('翼竜類')" :class="{ active: selectedTags.includes('翼竜類') }">翼竜類</button></li>
+                <li><button @click="toggleTag('首長竜類')" :class="{ active: selectedTags.includes('首長竜類') }">首長竜類</button></li>
+                <li><button @click="toggleTag('魚竜類')" :class="{ active: selectedTags.includes('魚竜類') }">魚竜類</button></li>
+                <li><button @click="toggleTag('モササウルス類')" :class="{ active: selectedTags.includes('モササウルス類') }">モササウルス類</button></li>
+                <li><button @click="toggleTag('その他')" :class="{ active: selectedTags.includes('その他') }">その他</button></li>
+
+                <li><button @click="toggleTag('獣脚類')" :class="{ active: selectedTags.includes('獣脚類') }">獣脚類</button></li>
+                <li><button @click="toggleTag('竜脚系類')" :class="{ active: selectedTags.includes('竜脚系類') }">竜脚系類</button></li>
+                <li><button @click="toggleTag('装盾類')" :class="{ active: selectedTags.includes('装盾類') }">装盾類</button></li>
+                <li><button @click="toggleTag('新鳥盤類')" :class="{ active: selectedTags.includes('新鳥盤類') }">新鳥盤類</button></li>
+                <br>
+                <!-- type3/4 -->
+                <li><button @click="toggleTag('鳥類')" :class="{ active: selectedTags.includes('鳥類') }">鳥類</button></li>
+                <li><button @click="toggleTag('竜脚類')" :class="{ active: selectedTags.includes('竜脚類') }">竜脚類</button></li>
+                <li><button @click="toggleTag('剣竜類')" :class="{ active: selectedTags.includes('剣竜類') }">剣竜類</button></li>
+                <li><button @click="toggleTag('よろい竜類')" :class="{ active: selectedTags.includes('よろい竜類') }">よろい竜類</button></li>
+                <li><button @click="toggleTag('鳥脚類')" :class="{ active: selectedTags.includes('鳥脚類') }">鳥脚類</button></li>
+                <li><button @click="toggleTag('周飾頭類')" :class="{ active: selectedTags.includes('周飾頭類') }">周飾頭類</button></li>
+                
+                <li><button @click="toggleTag('堅頭竜類')" :class="{ active: selectedTags.includes('堅頭竜類') }">堅頭竜類</button></li>
+                <li><button @click="toggleTag('角竜類')" :class="{ active: selectedTags.includes('角竜類') }">角竜類</button></li>
+                
             </ul>
-            
         </div>
+        
 
         <!-- カードコンテナ -->
-        <div class="cards">
+        <transition-group name="fade" tag="div" class="cards">
         
             <div class="card" v-for="(content, index) in filteredContents" :key="index">
-                <img :src="content.image.url" :alt="content.name">
+                
                 <div class="card-content">
                     <h3>{{ content.name }}</h3>
+                    <h3>{{ content.ename }}</h3>
+                    <img :src="content.image.url" :alt="content.name">
+
+                    <div class="mini-tags">
+                        <ul>
+                            <li v-if="content.eat && (Array.isArray(content.eat) ? content.eat.length > 0 : content.eat)">
+                                {{ Array.isArray(content.eat) ? content.eat.join(', ') : content.eat }}
+                            </li>
+                            <li v-if="content.size">{{ content.size }}m</li>
+                            <li v-if="content.location">{{ content.location }}</li>
+                            <li v-if="content.speed">{{ content.speed }}km/h</li>
+                            <li v-if="content.type0 && (Array.isArray(content.type0) ? content.type0.length > 0 : content.type0)">
+                                {{ Array.isArray(content.type0) ? content.type0.join(', ') : content.type0 }}
+                            </li>
+                            <li v-if="content.type2 && (Array.isArray(content.type2) ? content.type2.length > 0 : content.type2)">
+                                {{ Array.isArray(content.type2) ? content.type2.join(', ') : content.type2 }}
+                            </li>
+                            <li v-if="content.type3 && (Array.isArray(content.type3) ? content.type3.length > 0 : content.type3)">
+                                {{ Array.isArray(content.type3) ? content.type3.join(', ') : content.type3 }}
+                            </li>
+                            <li v-if="content.type4 && (Array.isArray(content.type4) ? content.type4.length > 0 : content.type4)">
+                                {{ Array.isArray(content.type4) ? content.type4.join(', ') : content.type4 }}
+                            </li>
+                            <li v-if="content.type5">{{ content.type5 }}</li>
+                            
+                        </ul>
+                    </div>
+                    <div class="buttons">
+                        <button @click="speak(content.name)" class="speaker-icon">日本語<i class="fa-solid fa-volume-high fa-xs"></i></button>
+                        <button @click="speake(content.ename)" class="speaker-icon">English<i class="fa-solid fa-volume-high fa-xs"></i></button>    
+                    </div>
+                    
                     <!-- <p>ここにコンテンツの詳細などを表示</p>
                     <a href="#" class="btn">Read More</a> -->
                 </div>
                 <!-- <textv></textv> -->
             </div>
-        </div>
+        </transition-group>
     </div>
 
     <div class="footer">
@@ -103,5 +154,6 @@
     </div>
     
     <script src="app.js"></script>
+    <script src="https://kit.fontawesome.com/ff7b4a8a5e.js" crossorigin="anonymous"></script>
 </body>
 </html>

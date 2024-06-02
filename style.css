@@ -12,20 +12,21 @@ body{
     margin: 5px;
 
 }
-/* ヘッダー */
+/* ヘッダー ============================*/
 .hedder{
-    
+    max-width: 656px;
+    margin:auto;
 }
 .imgbox{
     display: flex;
     justify-content: left; /* 水平方向にセンターに配置 */
     align-items: center;
-    margin:0 auto 5%;
+    /* margin:0 auto 5%; */
 }
 .imgbox img{
     border: 1px solid #FFFFFF;
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     object-fit: cover;
     border-radius:50%;    
 }
@@ -33,35 +34,44 @@ body{
 .imgbox p{
     margin-left: 10px;
     font-size: 25px;
+    padding-right: 10px;
 }
-/* ヒーロー */
+/* ヒーロー ============================*/
 .hero{
     display: flex;
     justify-content: center; /* 水平方向にセンターに配置 */
     align-items: center;
+    max-width: 656px;
+    margin: 0 auto;
 }
 .hero h1{
     font-weight: bold;
-    font-size: 47px;
-    line-height: 47px;
+    /* font-size: 47px; */
+    line-height: clamp(47px, calc(100vw/8), 94px);;
+    font-size: clamp(47px, calc(100vw/8), 94px);
 }
 .hero_right{
-    width: 135px;
+    width:40%;
+    /*  clamp(135px, calc(100vw/8), 270px); */
 }
+/* .hero_left .fa-hammer{
+    padding-left: 20px;
+} */
 
-/* 統計エリア */
+/* 統計エリア============================ */
 
 .statistics{
     display: flex;
     justify-content: space-around; /* 水平方向にセンターに配置 */
     align-items: center;
-    margin: 24px 0 24px 0;
+    max-width: 656px;
+    margin: 24px auto;
 }
 .box{
     position: relative;
     box-sizing: border-box;
-    width: 110px;
-    height: 105px;
+    width: 31.5%;
+    aspect-ratio: 1;
     background: #FFC531;
     border: 2px solid #FFFFFF;
     border-radius: 20px;
@@ -76,8 +86,8 @@ body{
     -webkit- transform: translateY(-50%) translateX(-50%);
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 700;
-    font-size: 15px;
+    font-weight: 500;
+    font-size: clamp(15px, calc(100vw/30), 30px);
     color: #000000;
     text-align: center;
 }
@@ -86,13 +96,13 @@ body{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
-    font-size: 42px;
-    line-height: 51px;
+    font-size: clamp(42px, calc(100vw/10), 72px);
+    line-height: clamp(51px, calc(100vw/10), 102px);
     
 }
 
 
-/* 検索 */
+/* 検索 ============================*/
 .search_box{
     
 }
@@ -129,8 +139,10 @@ body{
     outline: none;
 }
 
-/* タグ */
+/* タグ ============================*/
 .tag-buttons{
+    display: flex;
+    justify-content: center;
     overflow-x: auto;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
@@ -149,68 +161,31 @@ body{
 .tag-buttons_list li{
     list-style:none;
     display: inline;
+    /* @media screen and (min-width: 656px){
+        text-align: center;
+    } */
     
     
     /* overflow: scroll; */
 }
 .tag-buttons button{
-    
+    margin: 5px;
     height: 40px;
     padding: 5px 20px;
     border-radius: 50px;
     background-color: #ffdc81;
+    border: 1px solid #FFFFFF;
+    color: #000;
 }
 /* タグボタンのスタイル */
 .tag-buttons {
     display: flex;
     justify-content: center;
 }
-.tag-buttons button {
-    margin: 5px;
-}
+
 .tag-buttons button.active {
     background-color: #007BFF; /* 青色の背景色 */
     color: white; /* 白色の文字色 */
-}
-
-
-
-/* カードのCSS */
-.cards{
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 10px;
-    
-}
-.card {
-    width: 180px;
-    background-color: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-
-    
-    
-}
-
-.card img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.card-content {
-    padding: 20px;
-}
-
-.card-content h3 {
-    margin-top: 0;
-    text-align: center;
-}
-
-.card-content p {
-    color: #666666;
 }
 
 .btn {
@@ -226,8 +201,97 @@ body{
 .btn:hover {
     background-color: #0056b3;
 }
-/* フッター */
+
+/* カードのCSS============================ */
+.cards{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+    
+}
+.card {
+    width: 180px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow:  4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+
+    
+    
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card-content {
+    padding: 10px;
+}
+
+.card-content h3 {
+    margin-top: 0;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+.speaker-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+.card-content p {
+    color: #666666;
+}
+.mini-tags {
+    width: 100%;
+   
+}
+.mini-tags ul {
+    list-style:none;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0px;
+}
+.mini-tags ul li{
+    padding: 5px;
+    border-radius: 50px;
+    background-color: #dcdcdc;
+    color: #7f7f7f;
+    margin: 2px;
+    font-size: 12px;
+}
+
+
+.card-content .buttons{
+    display: flex;
+    width: 100%;
+    margin: 8px 0 8px 0;
+}
+
+.buttons button{
+    width: 44%;
+    font-size: 11px;
+    background-color: #ffffff;
+    border-color: #000;
+    border: 1px solid #000;
+    border-radius: 5px;
+    box-shadow:  4px 8px rgba(0, 0, 0, 0.1);
+    
+    text-align: center;
+}
+.fa-volume-high{
+    margin-left: 8px;
+}
+
+/* フッター ============================*/
 .footer{
+    margin-top: 24px;
     height: 200px;
     background-color: black;
     color: #ffffff;
@@ -235,7 +299,13 @@ body{
     
 }
 
+/* アニメーション============================*/
 
-
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 0.5s;
+}
+.fade-enter-from, .fade-leave-to {
+    opacity: 0;
+}
 
 

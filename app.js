@@ -24,12 +24,20 @@ const app = createApp({
                 console.log(res);
 
                 // データをVueアプリケーションのデータとして設定
-                this.contents = res.contents; // contents データを設定
+                this.contents = this.shuffleArray(res.contents); // contents データを設定                
                 this.totalContents = res.totalCount; // 全コンテンツの数を設定
             }).catch((error) => {
                 // エラーがあればコンソールに出力
                 console.error("Error fetching data from microcms:", error);
             });
+        },
+        shuffleArray(array) {
+            // 配列をランダムにシャッフルする関数
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
         },
         toggleTag(tag) {
             if (tag === 'ALL') {
@@ -52,6 +60,16 @@ const app = createApp({
                     this.selectedTags = ['ALL'];
                 }
             }
+        },
+        speak(name) {
+            const utterance = new SpeechSynthesisUtterance(name);
+            // utterance.lang='ja'
+            speechSynthesis.speak(utterance);
+        },
+        speake(name) {
+            const utterance = new SpeechSynthesisUtterance(name);
+            utterance.lang='en-US'
+            speechSynthesis.speak(utterance);
         }
     },
     computed: {
@@ -59,7 +77,13 @@ const app = createApp({
             return this.contents.filter(content => {
                 // 全てのselectedTagsがcontent.eatまたはcontent.eraに含まれているか確認
                 const matchesTags = this.selectedTags.includes('ALL') ||
-                    (this.selectedTags.every(tag => (content.eat && content.eat.includes(tag)) || (content.era && content.era.includes(tag))));
+                    (this.selectedTags.every(tag => (content.eat && content.eat.includes(tag)) || 
+                    (content.era && content.era.includes(tag)) ||
+                    (content.type1 && content.type0.includes(tag))||
+                    (content.type2 && content.type2.includes(tag))||
+                    (content.type3 && content.type3.includes(tag))||
+                    (content.type4 && content.type4.includes(tag))
+                    ));
                 const matchesSearch = content.name.toLowerCase().includes(this.searchKeyword.toLowerCase());
                 return matchesTags && matchesSearch;
             });
