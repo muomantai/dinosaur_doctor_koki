@@ -272,18 +272,23 @@ body{
     display: flex;
     width: 100%;
     margin: 8px 0 8px 0;
+    
 }
 
 .buttons button{
-    width: 44%;
+    width: 47%;
+    height: 36px;
     font-size: 11px;
     background-color: #ffffff;
     border-color: #000;
     border: 1px solid #000;
     border-radius: 5px;
     box-shadow:  4px 8px rgba(0, 0, 0, 0.1);
-    
+    margin-left: 0px;
     text-align: center;
+}
+.buttons button:first-child{
+    margin-right: 10px;
 }
 .fa-volume-high{
     margin-left: 8px;
