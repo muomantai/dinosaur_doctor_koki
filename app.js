@@ -87,6 +87,9 @@ const app = createApp({
                 const matchesSearch = content.name.toLowerCase().includes(this.searchKeyword.toLowerCase());
                 return matchesTags && matchesSearch;
             });
+        },
+        truncatedPercentage() {
+            return Math.floor((this.totalContents / 50) * 100);
         }
     },
     mounted() {

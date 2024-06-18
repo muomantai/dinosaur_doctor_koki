@@ -154,6 +154,8 @@ body{
 .tag-buttons_list{
     max-width:100%;
     padding: 0px;
+    @media screen and (min-width: 656px){
+        text-align: center;}
 }
 /* ul{
     padding-inline-start: 0px;
@@ -161,8 +163,7 @@ body{
 .tag-buttons_list li{
     list-style:none;
     display: inline;
-    /* @media screen and (min-width: 656px){
-        text-align: center;
+    /* 
     } */
     
     
@@ -216,19 +217,26 @@ body{
     border-radius: 20px;
     box-shadow:  4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-
+    position: relative;
     
     
 }
-
+/* 
 .card img {
-    width: 100%;
-    height: auto;
+    width: 175px;
     display: block;
+    object-fit:contain;
+} */
+.dinoimg{
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
 }
 
 .card-content {
+    height: 100%;
     padding: 10px;
+    padding-bottom: 60px;
 }
 
 .card-content h3 {
@@ -269,8 +277,11 @@ body{
 
 
 .card-content .buttons{
+    position: absolute; /* カードの相対位置に固定 */
+    bottom: 10px; /* カードの底辺から10px */
+    left: 0px; /* カードの内側から20px */
     display: flex;
-    
+    justify-content:center;
     width: 100%;
     margin: 8px 0 8px 0;
     
@@ -278,20 +289,21 @@ body{
 
 .buttons button{
     white-space: nowrap;
-    width: 50%;
+    width: 44%; /* ボタンの幅を調整 */
     height: 36px;
     font-size: 11px;
-    background-color: #ffffff;
+    background-color: #FFFFFF;
     border-color: #000;
+    color: #000;
     border: 1px solid #000;
     border-radius: 5px;
-    box-shadow:  4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow:  0 4px  rgba(0, 0, 0, 0.1);
     margin-left: 0px;
     /* text-align: center; */
     padding: 0px;
 }
 .buttons button:first-child{
-    margin-right: 10px;
+    margin-right: 5px;
 }
 .fa-volume-high{
     margin-left: 8px;
@@ -300,10 +312,14 @@ body{
 /* フッター ============================*/
 .footer{
     margin-top: 24px;
-    height: 200px;
+    /* height: 200px; */
+    padding: 30px;
     background-color: black;
     color: #ffffff;
     text-align: center;
+    /* display: flex;
+    justify-self: center;
+    align-items: center; */
     
 }
 

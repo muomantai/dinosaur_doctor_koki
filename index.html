@@ -43,13 +43,13 @@
             <div class="box">
                 <div class="box_text">
                     <p>あと</p>
-                    <p class="box_text_number"> {{ 100-totalContents }}</p>
+                    <p class="box_text_number"> {{ 50-totalContents }}</p>
                 </div>
             </div>
             <div class="box">
                 <div class="box_text">
                     <p>達成率</p>
-                    <p class="box_text_number">{{ (totalContents/1000)*100 }}%</p>
+                    <p class="box_text_number">{{ truncatedPercentage }}%</p>
                 </div>
             </div>
             
@@ -110,7 +110,7 @@
                 <div class="card-content">
                     <h3>{{ content.name }}</h3>
                     <h3>{{ content.ename }}</h3>
-                    <img :src="content.image.url" :alt="content.name">
+                    <img :src="content.image.url" :alt="content.name" class="dinoimg">
 
                     <div class="mini-tags">
                         <ul>
